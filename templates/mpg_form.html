@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<form action="/mpg" method="post">
+    <label for="cylinders">Cylinders:</label>
+    <input type="number" id="cylinders" name="cylinders" required>
+
+    <label for="displacement">Displacement:</label>
+    <input type="number" id="displacement" name="displacement" required>
+
+    <label for="horsepower">Horsepower:</label>
+    <input type="number" id="horsepower" name="horsepower" required>
+
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" name="weight" required>
+
+    <label for="acceleration">Acceleration:</label>
+    <input type="number" id="acceleration" name="acceleration" required>
+
+    <label for="model_year">Model Year:</label>
+    <input type="number" id="model_year" name="model_year" required>
+
+    <label for="origin">Origin:</label>
+    <input type="text" id="origin" name="origin" required>
+
+    <button type="submit">Predict MPG</button>
+</form>

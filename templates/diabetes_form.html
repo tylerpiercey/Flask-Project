@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<form action="/diabetes" method="post">
+    <label for="pregnancies">Pregnancies:</label>
+    <input type="number" id="pregnancies" name="pregnancies" required>
+
+    <label for="glucose">Glucose:</label>
+    <input type="number" id="glucose" name="glucose" required>
+
+    <label for="bloodPressure">Blood Pressure:</label>
+    <input type="number" id="bloodPressure" name="bloodPressure" required>
+
+    <label for="skinThickness">Skin Thickness:</label>
+    <input type="number" id="skinThickness" name="skinThickness" required>
+
+    <label for="insulin">Insulin:</label>
+    <input type="number" id="insulin" name="insulin" required>
+
+    <label for="bmi">BMI:</label>
+    <input type="number" id="bmi" name="bmi" required>
+
+    <label for="diabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+    <input type="number" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" step="any" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+
+    <button type="submit">Predict Diabetes</button>
+</form>
