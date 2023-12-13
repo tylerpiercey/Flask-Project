@@ -1,16 +1,18 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result</title>
+    <title>Prediction Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Prediction Result</h1>
-    <p>The predicted value is: {{ result }}</p>
-    <a href="/">Go Back Home</a>
+    <h1>Your Models Prediction</h1>
+    {% if result %}
+        <p>The predicted value is: {{ result }}</p>
+    {% else %}
+        <p>No prediction could be made. Please try again.</p>
+    {% endif %}
+    <a href="/" class="back-home">Go Back Home</a>
 </body>
 </html>

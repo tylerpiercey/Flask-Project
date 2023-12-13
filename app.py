@@ -19,11 +19,11 @@ def predict_mpg():
         weight = request.form.get('weight', type=float)
         acceleration = request.form.get('acceleration', type=float)
         model_year = request.form.get('model_year', type=int)
-        origin = request.form.get('origin')
+       
 
-        prediction = mpg_model.predict([[cylinders, displacement, horsepower, weight, acceleration, model_year, origin_numeric]])
-
-        return render_template('prediction_result.html', result=prediction)
+        prediction = mpg_model.predict([[cylinders, displacement, horsepower, weight, acceleration, model_year,]])
+        rounded_prediction = round(prediction[0], 1)  
+        return render_template('prediction_result.html', result=rounded_prediction)
 
     return render_template('mpg_form.html')
 
@@ -41,8 +41,8 @@ def predict_diabetes():
         age = request.form.get('age', type=int)
 
         prediction = diabetes_model.predict([[pregnancies, glucose, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, age]])
-
-        return render_template('prediction_result.html', result=prediction)
+        prediction_text = "likely to have diabetes" if prediction[0] == 1 else "unlikely to have diabetes"
+        return render_template('prediction_result.html', result=prediction_text)
 
     return render_template('diabetes_form.html')
 
