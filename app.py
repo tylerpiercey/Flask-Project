@@ -3,7 +3,7 @@ import joblib
 
 app = Flask(__name__)
 
-mpg_model = joblib.load("models\mpg_model.joblib")
+mpg_model = joblib.load("models\mpg_model(1).joblib")
 diabetes_model = joblib.load("models\diabetes_model.joblib")
 
 @app.route('/')
@@ -41,7 +41,7 @@ def predict_diabetes():
         age = request.form.get('age', type=int)
 
         prediction = diabetes_model.predict([[pregnancies, glucose, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, age]])
-        prediction_text = "likely to have diabetes" if prediction[0] == 1 else "unlikely to have diabetes"
+        prediction_text = " Using the provided data this person is likely to have diabetes" if prediction[0] == 1 else "Using the provided data this person is unlikely to have diabetes"
         return render_template('prediction_result.html', result=prediction_text)
 
     return render_template('diabetes_form.html')
